@@ -162,10 +162,10 @@ USDmapCount(state.sel = c("IA"),
             cname = countyname) ## Timepoint 12
 
 ## -----------------------------------------------------------------------------
-res0 <- BNB(y, X, A, nchain=2, niter=100, nburn=20)
+res0 <- BNB(y, X, A, nchain=2, niter=50, nburn=10)
 glimpse(res0)
 
-res1 <- BZINB(y, X, A, nchain=2, niter=100, nburn=20)
+res1 <- BZINB(y, X, A, nchain=2, niter=50, nburn=10)
 glimpse(res1)
 
 
@@ -173,11 +173,11 @@ apply(res0$Beta,2,mean)
 apply(res1$Beta,2,mean)
 
 ## -----------------------------------------------------------------------------
-res2 <- BSTNB(y, X, A, nchain=2, niter=100, nburn=20)
+res2 <- BSTNB(y, X, A, nchain=2, niter=50, nburn=10)
 glimpse(res2)
 
 ## ----fig.width=6,fig.height=3,fig.align='center'------------------------------
-res3 <- BSTZINB(y, X, A, LinearT=TRUE, nchain=2, niter=100, nburn=20, nthin=1)
+res3 <- BSTZINB(y, X, A, LinearT=TRUE, nchain=2, niter=50, nburn=10, nthin=1)
 glimpse(res3)
 
 
@@ -198,7 +198,7 @@ true.beta
 compute_ZINB_DIC(y,res3,dim(res3$Beta)[1],2)
 
 ## ----fig.width=6,fig.height=3,fig.align='center'------------------------------
-res4 <- BSTZINB(y, X, A, LinearT=FALSE, nchain=2, niter=100, nburn=20)
+res4 <- BSTZINB(y, X, A, LinearT=FALSE, nchain=2, niter=50, nburn=10)
 glimpse(res4)
 
 ## Convergence tests
@@ -220,7 +220,7 @@ compute_ZINB_DIC(y,res4,dim(res4$Beta)[1],2)
 ResultTableSummary(res3)
 
 ## -----------------------------------------------------------------------------
-ResultTableSummary2(y, X, A, nchain=2, niter=100, nburn=20, nthin=1)
+ResultTableSummary2(y, X, A, nchain=2, niter=50, nburn=10, nthin=1)
 
 ## -----------------------------------------------------------------------------
 # Map Visualization : Time-averaged Eta

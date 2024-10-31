@@ -1,5 +1,5 @@
-# BSTZINB 1.0.0
+# BSTZINB 1.0.1
 
-# BSTZINB 0.1.0
+This patch only updates the contributor information.
 
-* Initial CRAN submission.
+* Updated author info

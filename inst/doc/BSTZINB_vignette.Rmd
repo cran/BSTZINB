@@ -216,10 +216,10 @@ USDmapCount(state.sel = c("IA"),
 Now, we shall apply the different models on this data. We'll start by fitting the Bayesian Spatiotemporal Poisson (BSTP) model using the functions `BNB` and `BZINB`:
 
 ```{r}
-res0 <- BNB(y, X, A, nchain=2, niter=100, nburn=20)
+res0 <- BNB(y, X, A, nchain=2, niter=50, nburn=10)
 glimpse(res0)
 
-res1 <- BZINB(y, X, A, nchain=2, niter=100, nburn=20)
+res1 <- BZINB(y, X, A, nchain=2, niter=50, nburn=10)
 glimpse(res1)
 
 
@@ -230,14 +230,14 @@ apply(res1$Beta,2,mean)
 Next will be the Bayesian Spatiotemporal Negative Binomial (BSTNB) model using the function `BSTNB`:
 
 ```{r}
-res2 <- BSTNB(y, X, A, nchain=2, niter=100, nburn=20)
+res2 <- BSTNB(y, X, A, nchain=2, niter=50, nburn=10)
 glimpse(res2)
 ```
 
 Followed by a Bayesian Spatiotemporal Zero Inflated Negative Binomial (BSTZINB) model with linear temporal trend using the `BSTZINB` function with option `LinearT` set to `TRUE`. We can check the convergence of different parameters for this model using the `conv.test` function supplied with the package. DIC can also be computed using the supplied `compute_ZINB_DIC` function.
 
 ```{r,fig.width=6,fig.height=3,fig.align='center'}
-res3 <- BSTZINB(y, X, A, LinearT=TRUE, nchain=2, niter=100, nburn=20, nthin=1)
+res3 <- BSTZINB(y, X, A, LinearT=TRUE, nchain=2, niter=50, nburn=10, nthin=1)
 glimpse(res3)
 
 
@@ -262,7 +262,7 @@ compute_ZINB_DIC(y,res3,dim(res3$Beta)[1],2)
 And, another BSTZINB model but with spline fitted non-linear temporal trend is fitted below by switching the `LinearT` to `FALSE`. Corresponding convergence tests, plots and DIC computation are also presented. We can compare the two DICs to pick the best fit model.
 
 ```{r,fig.width=6,fig.height=3,fig.align='center'}
-res4 <- BSTZINB(y, X, A, LinearT=FALSE, nchain=2, niter=100, nburn=20)
+res4 <- BSTZINB(y, X, A, LinearT=FALSE, nchain=2, niter=50, nburn=10)
 glimpse(res4)
 
 ## Convergence tests
@@ -290,7 +290,7 @@ ResultTableSummary(res3)
 A more detailed summary can be obtained by using the function `ResultTableSummary2`. This functions takes the data (`y`, `X`, `A`, `nt`) as input, runs all of the above 4 models, computes DICs and checks convergences, and finally summarizes them:
 
 ```{r}
-ResultTableSummary2(y, X, A, nchain=2, niter=100, nburn=20, nthin=1)
+ResultTableSummary2(y, X, A, nchain=2, niter=50, nburn=10, nthin=1)
 ```
 
 Next, we'll focus on the outputs of these models and visualizing them. First, we'll visualize a time-averaged Eta parameter in the following way:

@@ -1,6 +1,6 @@
-ddb8c0664820fa895de3f839319bfd54 *DESCRIPTION
+d46bdf69df22a979a736836e83a02641 *DESCRIPTION
 723542d3b5761086a8b19c28b19e363c *NAMESPACE
-c3015d1f02cf06d9e1eefe87a73bc536 *NEWS.md
+9f0a22616d4b6f54c946f29409d63958 *NEWS.md
 765c9d42498e53cfc12fd3cbd64bfd79 *R/BNB.R
 13fa34304bdcf333df90747137cbccf9 *R/BSTNB.R
 e25f0d7071b207d44b2b77a959d15afa *R/BSTZINB.R
@@ -15,9 +15,9 @@ a71ae928b5da35d3388d2ec404e1d574 *R/graphics_func.R
 3c6befdfa9dbb2c93120f19e188bf189 *data/USAcities.rda
 1553aed26e312e2d23e55896b1280610 *data/county.adjacency.rda
 24832934010934be935b45a556440e80 *data/simdat.rda
-146ab1cf3540221c4657d03cbd47dde7 *inst/doc/BSTZINB_vignette.R
-2927feda900ecd63294c778a3ff51526 *inst/doc/BSTZINB_vignette.Rmd
-feb9d1d8bbf3f02cb96a37b7a1ad51ca *inst/doc/BSTZINB_vignette.html
+cbc3da6813e2a0e02b1af9734ff28112 *inst/doc/BSTZINB_vignette.R
+9e57a6f7a2c1b2c0d6e9736fc2e05d57 *inst/doc/BSTZINB_vignette.Rmd
+ae941eae1e72c13b6cbddd052e618e8e *inst/doc/BSTZINB_vignette.html
 00b7d99cbf2f7478d192c4b2ea15b963 *man/BNB.Rd
 b69afc4299123481a2597c55fd0485f2 *man/BSTNB.Rd
 5b2a5b60218808cf39e0919303b29fe8 *man/BSTZINB.Rd
@@ -38,4 +38,4 @@ c825775ffd4c8930b03490eaa058b889 *man/simdat.Rd
 b35f67e25f642b468dd526baa89cf6d9 *tests/testthat.R
 3ab15fa4f4cd1272e3594af08e222404 *tests/testthat/_snaps/mainfuncs.md
 3172a0971527f01341f72ec1d93fd0c9 *tests/testthat/test-mainfuncs.R
-2927feda900ecd63294c778a3ff51526 *vignettes/BSTZINB_vignette.Rmd
+9e57a6f7a2c1b2c0d6e9736fc2e05d57 *vignettes/BSTZINB_vignette.Rmd
