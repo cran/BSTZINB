@@ -6,7 +6,7 @@ knitr::opts_chunk$set(
 )
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  install.packages('BSTZINB')
+# install.packages('BSTZINB')
 
 ## ----setup--------------------------------------------------------------------
 library(BSTZINB)

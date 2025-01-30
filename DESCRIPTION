@@ -1,7 +1,7 @@
 Package: BSTZINB
 Type: Package
 Title: Association Among Disease Counts and Socio-Environmental Factors
-Version: 1.0.1
+Version: 2.0.0
 Authors@R: c(
     person("Suman","Majumder",email="smajumd2@gmail.com",role=c("cre","aut","cph")),
     person("Yoon-Bae","Jun",role=c("aut","cph")),
@@ -23,7 +23,7 @@ Config/testthat/edition: 3
 URL: https://github.com/SumanM47/BSTZINB
 BugReports: https://github.com/SumanM47/BSTZINB/issues
 NeedsCompilation: no
-Packaged: 2024-10-31 20:27:31 UTC; sm8qr
+Packaged: 2025-01-30 14:22:13 UTC; sum313
 Author: Suman Majumder [cre, aut, cph],
   Yoon-Bae Jun [aut, cph],
   Sounak Chakraborty [ctb],
@@ -31,4 +31,4 @@ Author: Suman Majumder [cre, aut, cph],
   Tanujit Dey [ctb]
 Maintainer: Suman Majumder <smajumd2@gmail.com>
 Repository: CRAN
-Date/Publication: 2024-10-31 22:50:02 UTC
+Date/Publication: 2025-01-30 17:50:07 UTC
