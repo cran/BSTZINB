@@ -42,9 +42,9 @@ covm <- matrix(c(.5,.10,.10,-.10,
               .10,.10,.5,.10,
               -.10,.10,.10,.15),4,4)# Conditional Cov of phi1 and phi2 given phi_{-i} 
 Q <- as.spam(diag(m)-kappa*A)			     
-covphi <- solve(Q)%x%covm			        # 3n x 3n covariance of phis
-phi <- rmvnorm(1,sigma=covphi)		    # 3n vector of spatial effects
-phitmp <- matrix(phi,ncol=4,byrow=T)  # n x 3 matrix of spatial effects
+covphi <- solve(Q)%x%covm			        # 4n x 4n covariance of phis
+phi <- rmvnorm(1,sigma=covphi)		    # 4n vector of spatial effects
+phitmp <- matrix(phi,ncol=4,byrow=T)  # n x 4 matrix of spatial effects
 
 true.phi1 <- phi1 <- phitmp[,1]-mean(phitmp[,1])   # n x 1 phi1 vector -- Centered
 true.phi2 <- phi2 <- phitmp[,2]-mean(phitmp[,2])   # n x 1 phi2 vector, etc.
@@ -103,8 +103,17 @@ pzero <- length(y[y==0])/N             # Proportion of zeros
 
 
 this_dat <- data.frame(sid,tid,y,X)
+colnames(this_dat) <- c("sid","tid","y","Intercept","x")
+# data(synth_dat_IA)
+# this_dat <- synth_dat_IA
 head(this_dat)
 tbl_summary(this_dat) %>% modify_header(label = "**Coefficients**")
+
+# Make local copies
+y <- this_dat$y
+sid <- this_dat$sid
+tid <- this_dat$tid
+X <- cbind(1,this_dat$x)
 
 ## -----------------------------------------------------------------------------
 USDmapCount(state.sel = c("IA"),
@@ -116,7 +125,7 @@ USDmapCount(state.sel = c("IA"),
 
 ## -----------------------------------------------------------------------------
 # blue histogram
-tmp <- table(y)/N*100  # convert to %s (divide by N multiply by 100)
+tmp <- table(this_dat$y)/N*100  # convert to %s (divide by N multiply by 100)
 oldpar <- par(no.readonly = TRUE)
 par(mar=c(3,3,1,1))
 barplot(tmp, ylab="Percent",xlab="Count",col="lightblue")
@@ -195,7 +204,7 @@ apply(res3$Beta,2,mean)
 true.beta
 
 ## Computing DIC
-compute_ZINB_DIC(y,res3,dim(res3$Beta)[1],2)
+compute_ZINB_DIC(y,res3)
 
 ## ----fig.width=6,fig.height=3,fig.align='center'------------------------------
 res4 <- BSTZINB(y, X, A, LinearT=FALSE, nchain=2, niter=50, nburn=10)
@@ -214,7 +223,7 @@ apply(res4$Beta,2,mean)
 mean(res4$R)
 
 ## DIC
-compute_ZINB_DIC(y,res4,dim(res4$Beta)[1],2)
+compute_ZINB_DIC(y,res4)
 
 ## -----------------------------------------------------------------------------
 ResultTableSummary(res3)

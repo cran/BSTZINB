@@ -4,16 +4,12 @@
 \alias{compute_NB_DIC}
 \title{DIC for BSTNB or BNB fitted objects}
 \usage{
-compute_NB_DIC(y,bstfit,lastit,nchain)
+compute_NB_DIC(y,bstfit)
 }
 \arguments{
 \item{y}{vector of counts, must be non-negative, the response used for fitting a BSTNB or BSTP model}
 
 \item{bstfit}{BSTNB or BNB fitted object}
-
-\item{lastit}{positive integer, size of the chain used to fit BSTZINB}
-
-\item{nchain}{positive integer, number of chains used to fit BSTZINB}
 }
 \value{
 DIC value
@@ -32,7 +28,7 @@ countyname <- unique(IAcities$county_name)
 A <- get_adj_mat(county.adjacency,countyname,c("IA"))
 \donttest{
 res2 <- BSTNB(y, X, A, nchain=3, niter=100, nburn=20, nthin=1)
-compute_NB_DIC(y,res2,lastit=(100-20)/1,nchain=3)
+compute_NB_DIC(y,res2)
 }
 
 }

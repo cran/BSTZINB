@@ -274,9 +274,10 @@ BSTZINB <- function(y, X, A, LinearT = TRUE, nchain=3, niter=100, nburn=20, nthi
     }
   }
 
-  list.params = list(Alpha=Alpha, Beta=Beta, R=R, Sigphi=Sigphi,
+  list_params = list(Alpha=Alpha, Beta=Beta, R=R, Sigphi=Sigphi,
                      PHI1=PHI1, PHI2=PHI2, PHI3=PHI3, PHI4=PHI4,
                      Eta1=Eta1, Eta2=Eta2, I=I)
-  return(list.params)
+  class(list_params) <- "DCMB"
+  return(list_params)
 
 }

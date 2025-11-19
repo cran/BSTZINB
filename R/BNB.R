@@ -131,5 +131,6 @@ BNB <- function(y, X, A, nchain=3, niter=100, nburn=20, nthin=1){
   }
 
   list_params <- list(Alpha=NULL, Beta=Beta, R=R, Eta1=Eta)
+  class(list_params) <- "DCMB"
   return(list_params)
 }

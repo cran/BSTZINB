@@ -206,5 +206,6 @@ BSTNB <- function(y, X, A, nchain=3, niter=100, nburn=20, nthin=1){
   }
 
   list_params <- list(Alpha=NULL, Beta=Beta, R=R, Sigphi=Sigphi, PHI3=PHI3, PHI4=PHI4, Eta1=Eta)
+  class(list_params) <- "DCMB"
   return(list_params)
 }

@@ -165,6 +165,6 @@ BZINB <- function(y, X, A, nchain=3, niter=100, nburn=20, nthin=1){
 
   list_params <- list(Alpha=Alpha, Beta=Beta, R=R,
                      Eta1=Eta1, Eta2=Eta2, I=I)
-
+  class(list_params) <- "DCMB"
   return(list_params)
 }
